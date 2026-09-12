@@ -14,6 +14,8 @@ modelos/LESSONS.md              o esqueleto do arquivo de lições de método
 memory/                         7 arquivos de memória genéricos e o índice MEMORY.md
 skills/devils-advocate/         o passe de advogado do diabo: verifica cada afirmação antes de sair do chat
 skills/log-to-disk/             a regra dos 5 prompts: tudo importante vai para o disco, e o CLAUDE.md é corrigido, não acumulado
+skills/grilling/                a entrevista sem trégua: o Claude interroga o seu plano em rodadas até nada ficar em suposição
+skills/grill-me/                o atalho /grill-me, que só você invoca; ele roda o grilling
 ```
 
 O terceiro skill, o **humanizer** (e o seu par, **structural-humanizer**), não é meu. Ele vem
@@ -81,6 +83,15 @@ relatório, tabela, plano, decisão. Cada afirmação termina em um de quatro es
 concede esse estado, e aí ela aparece rotulada no texto). Cada problema recebe uma classe de
 falha de uma lista numerada que cresce com o projeto. Está em `skills/devils-advocate/`.
 
+### 5b. Ser interrogado antes de decidir
+
+O oposto do advogado do diabo: em vez de o Claude verificar o que ele escreveu, ele interroga o
+que você pensou. `/grill-me` abre uma entrevista em rodadas. Cada rodada traz todas as perguntas
+que já dá para fazer, numeradas, cada uma com a resposta que ele recomenda; você responde, a
+árvore de decisões cresce, vem a próxima rodada. Fatos ele busca sozinho; decisões ele pede a
+você. Termina quando não sobra nada em suposição silenciosa. Use antes de um plano, de uma
+arquitetura ou de uma decisão cara. Está em `skills/grilling/` e `skills/grill-me/`.
+
 ### 6. A regra dos 5 prompts
 
 A cada 5 prompts seus, tudo importante vai para o disco: decisões, fatos, correções, promessas,
@@ -134,14 +145,14 @@ passo concreto"). O Claude calibra a explicação a partir disso. Sem essa seç�
    seu projeto e preencha as seções. Apague o que não se aplica. Um `CLAUDE.md` de 30 linhas
    preenchido vale mais que um de 300 com placeholders.
 
-2. **Os dois skills deste kit.** Copie as pastas para `~/.claude/skills/`:
+2. **Os skills deste kit.** Copie as pastas para `~/.claude/skills/`:
 
    ```bash
-   cp -r skills/devils-advocate skills/log-to-disk ~/.claude/skills/
+   cp -r skills/* ~/.claude/skills/
    ```
 
    No Windows a pasta é `C:\Users\<você>\.claude\skills\`. O Claude Code lista os skills no início
-   de cada sessão; `/devils-advocate` e `/log-to-disk` passam a existir.
+   de cada sessão; `/devils-advocate`, `/log-to-disk` e `/grill-me` passam a existir.
 
 3. **O humanizer.** Instale do repositório original, que tem o `install.sh` e recebe atualizações:
 
