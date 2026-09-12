@@ -1,0 +1,7 @@
+- [Sem perguntas no final](sem-perguntas-no-final.md) — nunca terminar uma resposta com pergunta ou quiz; terminar com os próximos passos.
+- [Sem documentos sem sinal verde](sem-documentos-sem-sinal-verde.md) — nenhum entregável sem aprovação explícita; discutir os passos antes.
+- [Regra dos 5 prompts](regra-dos-5-prompts.md) — a cada 5 prompts, rodar /log-to-disk; nada importante vive só no chat.
+- [Contar por script](contar-por-script.md) — nenhum número entra num arquivo por ter sido lido no olho.
+- [Verificar ao vivo](verificar-ao-vivo.md) — estado de um sistema vivo só se verifica com leitura ao vivo naquela execução.
+- [Ler o relógio](ler-o-relogio.md) — a máquina está em <fuso>; ler a hora no mesmo comando que a escreve.
+- [Como eu trabalho](como-eu-trabalho.md) — modelo para preencher: forte em, aprendendo, como funciono.
