@@ -14,13 +14,12 @@ modelos/LESSONS.md              o esqueleto do arquivo de lições de método
 memory/                         7 arquivos de memória genéricos e o índice MEMORY.md
 skills/devils-advocate/         o passe de advogado do diabo: verifica cada afirmação antes de sair do chat
 skills/log-to-disk/             a regra dos 5 prompts: tudo importante vai para o disco, e o CLAUDE.md é corrigido, não acumulado
-skills/grilling/                a entrevista sem trégua: o Claude interroga o seu plano em rodadas até nada ficar em suposição
-skills/grill-me/                o atalho /grill-me, que só você invoca; ele roda o grilling
 ```
 
-O terceiro skill, o **humanizer** (e o seu par, **structural-humanizer**), não é meu. Ele vem
-do repositório público https://github.com/NulightJens/humanizer-stack e se instala de lá.
-Veja "Instalar" abaixo.
+Dois outros skills que uso todo dia não são meus e se instalam da fonte, veja "Instalar" abaixo:
+
+- **humanizer** e o par **structural-humanizer**, de https://github.com/NulightJens/humanizer-stack.
+- **grill-me** e o **grilling** por trás dele, de Matt Pocock, https://github.com/mattpocock/skills.
 
 ## As práticas, em ordem de importância
 
@@ -90,7 +89,7 @@ que você pensou. `/grill-me` abre uma entrevista em rodadas. Cada rodada traz t
 que já dá para fazer, numeradas, cada uma com a resposta que ele recomenda; você responde, a
 árvore de decisões cresce, vem a próxima rodada. Fatos ele busca sozinho; decisões ele pede a
 você. Termina quando não sobra nada em suposição silenciosa. Use antes de um plano, de uma
-arquitetura ou de uma decisão cara. Está em `skills/grilling/` e `skills/grill-me/`.
+arquitetura ou de uma decisão cara. É o `grill-me` do Matt Pocock; instalação abaixo.
 
 ### 6. A regra dos 5 prompts
 
@@ -152,9 +151,18 @@ passo concreto"). O Claude calibra a explicação a partir disso. Sem essa seç�
    ```
 
    No Windows a pasta é `C:\Users\<você>\.claude\skills\`. O Claude Code lista os skills no início
-   de cada sessão; `/devils-advocate`, `/log-to-disk` e `/grill-me` passam a existir.
+   de cada sessão; `/devils-advocate` e `/log-to-disk` passam a existir.
 
-3. **O humanizer.** Instale do repositório original, que tem o `install.sh` e recebe atualizações:
+3. **O grill-me.** É um plugin do repositório do Matt Pocock; instala de dentro do Claude Code:
+
+   ```
+   /plugin install mattpocock-skills
+   ```
+
+   Vem com `grilling` (o Claude dispara sozinho quando você pede para ser interrogado) e
+   `/grill-me` (só você invoca). O repositório traz outros skills de engenharia; vale olhar.
+
+4. **O humanizer.** Instale do repositório original, que tem o `install.sh` e recebe atualizações:
 
    ```bash
    git clone https://github.com/NulightJens/humanizer-stack ~/.claude/repos/humanizer-stack
@@ -165,11 +173,11 @@ passo concreto"). O Claude calibra a explicação a partir disso. Sem essa seç�
    Rode o primeiro antes do segundo. Ele custa uns 11 mil tokens para carregar, então carregue
    quando aparecer o primeiro texto que uma pessoa vai ler, não no começo da sessão.
 
-4. **A memória.** Peça ao Claude, na primeira sessão do projeto, o caminho da pasta de memória
+5. **A memória.** Peça ao Claude, na primeira sessão do projeto, o caminho da pasta de memória
    dele (ele conhece; é algo como `~/.claude/projects/<seu-projeto>/memory/`). Copie os arquivos
    de `memory/` para lá e ajuste o `como-eu-trabalho.md`, que é um modelo para você preencher.
 
-5. **A primeira sessão.** Abra o projeto e diga ao Claude, em uma mensagem: quem você é, o que o
+6. **A primeira sessão.** Abra o projeto e diga ao Claude, em uma mensagem: quem você é, o que o
    projeto é, e que ele deve ler `CLAUDE.md`, `LESSONS.md` e a memória antes de qualquer coisa.
    Depois peça para ele rodar `/log-to-disk` no fim da sessão. A partir daí a regra dos 5
    prompts se sustenta sozinha, porque está escrita no `CLAUDE.md`.
